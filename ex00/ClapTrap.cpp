@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 12:20:59 by mcutura           #+#    #+#             */
-/*   Updated: 2023/08/12 12:20:59 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/09/22 01:03:55 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int	ClapTrap::getDamage() const
 }
 void	ClapTrap::burnEnergy(unsigned int amount)
 {
-	this->_energy -= amount;
+	if (this->hasEnergy())
+		this->_energy -= amount;
 }
 
 // Public member functions
@@ -142,5 +143,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 // Output operator
 std::ostream &operator<<(std::ostream &out, ClapTrap const &object)
 {
-	std::cout << object.getName();
+	out << object.getName();
+	return (out);
 }
